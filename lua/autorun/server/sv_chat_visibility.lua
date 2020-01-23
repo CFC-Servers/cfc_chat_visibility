@@ -1,6 +1,6 @@
 util.AddNetworkString( "CFC_ChatVisibility_print" )
 local colors = {
-    team_label     = Color( 0, 255, 0 ),
+    team_label     = Color( 44, 147, 51 ),
     psay_seperator = Color( 0, 180, 90 ),
     text           = Color( 255, 255, 255 )
 }
@@ -37,9 +37,9 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( ply, text, isTeam )
     local message = {
         author = ply,
         message = {
-            colors.team_label, "(team)",
+            colors.team_label, "(TEAM) ",
             teamColor( ply ), ply:GetName(),
-            colors.text ":", text
+            colors.text ": ", text
         },
         msgType = "TEAM",
         shouldPrint = function( msg, ply )
@@ -63,7 +63,7 @@ hook.Add( "ULibCommandCalled", "CFC_ChatVisibility_ULibCommand", function( ply, 
             teamColor( author ), author:GetName(),
             colors.psay_seperator, "->",
             teamColor( recipient ), recipient:GetName(),
-            colors.text, ":", text
+            colors.text, ": ", text
         },
         msgType = "PSAY",
         shouldPrint = function( msg, ply )
