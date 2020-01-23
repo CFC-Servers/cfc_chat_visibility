@@ -15,7 +15,7 @@ end
 
 local function printMessage( ply, msg )
     net.Start( "CFC_ChatVisibility_print" )
-    net.WritTable( msg )
+    net.WriteTable( msg )
     net.Send( ply )
 end
 
