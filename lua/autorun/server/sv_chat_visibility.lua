@@ -1,8 +1,8 @@
 util.AddNetworkString( "CFC_ChatVisibility_print" )
 local colors = {
-    team_label     = Color(0,255,0),
-    psay_seperator = Color(0, 180, 90),
-    text           = Color(255, 255, 255)
+    team_label     = Color( 0, 255, 0 ),
+    psay_seperator = Color( 0, 180, 90 ),
+    text           = Color( 255, 255, 255 )
 }
 
 local format = string.format
