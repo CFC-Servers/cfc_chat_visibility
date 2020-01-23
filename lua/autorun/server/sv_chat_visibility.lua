@@ -25,14 +25,13 @@ local function printStaff( msg )
             printMessage( ply, msg )
         end
     end
-
 end
 
 
 hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam )
     if not isTeam then return end
 
-    local message = {
+    printStaff{
         author = author,
         message = {
             colors.team_label, "(TEAM) ",
@@ -44,8 +43,6 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
             return msg.author:GetTeam() ~= ply:GetTeam()
         end
     }
-
-    printStaff( message )
 end)
 
 hook.Add( "ULibCommandCalled", "CFC_ChatVisibility_ULibCommand", function( _, cmd, args )
@@ -68,5 +65,4 @@ hook.Add( "ULibCommandCalled", "CFC_ChatVisibility_ULibCommand", function( _, cm
             return msg.author ~= ply and msg.recipient ~= ply
         end
     }
-
 end)
