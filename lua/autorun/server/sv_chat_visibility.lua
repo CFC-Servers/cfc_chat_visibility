@@ -46,7 +46,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
     }
 
     printStaff( message )
-end) 
+end)
 
 hook.Add( "ULibCommandCalled", "CFC_ChatVisibility_ULibCommand", function( _, cmd, args )
     if cmd ~= "ulx psay" then return end
