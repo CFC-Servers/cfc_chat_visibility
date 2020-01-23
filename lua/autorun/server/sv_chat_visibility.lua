@@ -5,8 +5,6 @@ local colors = {
     text           = Color( 255, 255, 255 )
 }
 
-local format = string.format
-
 local function isStaff( ply )
     return ply:IsAdmin()
 end
