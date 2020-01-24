@@ -10,7 +10,7 @@ local function isStaff( ply )
 end
 
 local function teamColor( ply )
-    return team.GetColor( ply:GetTeam() )
+    return team.GetColor( ply:Team() )
 end
 
 local function printMessage( ply, msg )
@@ -22,7 +22,7 @@ end
 local function printStaff( msg )
     for _, ply in pairs( player.GetHumans() ) do
         if isStaff( ply ) and msg:shouldPrint( ply ) then
-            printMessage( ply, msg )
+            printMessage( ply, msg.message )
         end
     end
 end
@@ -36,7 +36,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
         message = {
             colors.team_label, "(TEAM) ",
             teamColor( author ), author:GetName(),
-            colors.text ": ", text
+            colors.text, ": ", text
         },
         msgType = "TEAM",
         shouldPrint = function( msg, ply )
