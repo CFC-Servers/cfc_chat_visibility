@@ -1,4 +1,4 @@
-net.receive( "CFC_ChatVisibility_print", function(n)
-    msgInfo = net.ReadTable()
-    chat.AddText( msgInfo.message )
+net.Receive( "CFC_ChatVisibility_print", function(n)
+    message = net.ReadTable()
+    chat.AddText( unpack( message ) )
 end)
