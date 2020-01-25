@@ -45,11 +45,11 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
     }
 end)
 
-hook.Add( "ULibCommandCalled", "CFC_ChatVisibility_ULibCommand", function( _, cmd, args )
+hook.Add( "ULibPostTranslatedCommand", "CFC_ChatVisibility_ULibCommand", function( _, cmd, args )
     if cmd ~= "ulx psay" then return end
-    author    = args[1]
-    recipient = args[2]
-    text      = args[3]
+    local author    = args[1]
+    local recipient = args[2]
+    local text      = args[3]
 
     printStaff{
         author = author,
