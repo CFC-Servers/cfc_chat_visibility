@@ -40,7 +40,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
         },
         msgType = "TEAM",
         shouldPrint = function( msg, ply )
-            return msg.author:GetTeam() ~= ply:GetTeam()
+            return msg.author:Team() ~= ply:Team()
         end
     }
 end)
