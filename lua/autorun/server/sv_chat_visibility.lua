@@ -30,6 +30,7 @@ end
 
 hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam )
     if not isTeam then return end
+    if not IsValid( author ) then return end
 
     printStaff{
         author = author,
@@ -50,6 +51,8 @@ hook.Add( "ULibPostTranslatedCommand", "CFC_ChatVisibility_ULibCommand", functio
     local author    = args[1]
     local recipient = args[2]
     local text      = args[3]
+    if not IsValid( author ) then return end
+    if not IsValid( recipient ) then return end
 
     printStaff{
         author = author,
