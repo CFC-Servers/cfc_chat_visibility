@@ -35,7 +35,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
     printStaff{
         author = author,
         message = {
-            colors.team_label, "(TEAM) ",
+            colors.team_label, "( TEAM ) ",
             teamColor( author ), author:GetName(),
             colors.text, ": ", text
         },
@@ -44,7 +44,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
             return msg.author:Team() ~= ply:Team()
         end
     }
-end)
+end )
 
 hook.Add( "ULibPostTranslatedCommand", "CFC_ChatVisibility_ULibCommand", function( _, cmd, args )
     if cmd ~= "ulx psay" then return end
@@ -68,4 +68,4 @@ hook.Add( "ULibPostTranslatedCommand", "CFC_ChatVisibility_ULibCommand", functio
             return msg.author ~= ply and msg.recipient ~= ply
         end
     }
-end)
+end )
