@@ -1,6 +1,6 @@
 util.AddNetworkString( "CFC_ChatVisibility_print" )
 local colors = {
-    team_label     = Color( 44, 147, 51 ),
+    team_label     = Color( 24, 162, 35 ),
     psay_seperator = Color( 0, 180, 90 ),
     text           = Color( 255, 255, 255 )
 }
@@ -35,7 +35,7 @@ hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam 
     printStaff{
         author = author,
         message = {
-            colors.team_label, "( TEAM ) ",
+            colors.team_label, "(TEAM) ",
             teamColor( author ), author:GetName(),
             colors.text, ": ", text
         },
