@@ -1,4 +1,4 @@
-local enabledConvar = CreateClientConVar( "cfc_chatvisibility_enabled", "1", true, false)
+local enabledConvar = CreateClientConVar( "cfc_chatvisibility_enabled", "1", true, false )
 
 net.Receive( "CFC_ChatVisibility_print", function( n )
     if not enabledConvar:GetBool() then return end
