@@ -5,8 +5,12 @@ local colors = {
     text           = Color( 255, 255, 255 )
 }
 
-local function isStaff( ply )
-    return ply:IsAdmin()
+if SERVER then
+    ULib.ucl.registerAccess( "ulx seepsay", ULib.ACCESS_ADMIN, "Ability to see all team and private messages", "Other" )
+end
+
+local function canSee( ply )
+    return ULib.ucl.query( ply, "ulx seepsay" ) == true
 end
 
 local function teamColor( ply )
@@ -21,7 +25,7 @@ end
 
 local function printStaff( msg )
     for _, ply in pairs( player.GetHumans() ) do
-        if isStaff( ply ) and msg:shouldPrint( ply ) then
+        if canSee( ply ) and msg:shouldPrint( ply ) then
             printMessage( ply, msg.message )
         end
     end
