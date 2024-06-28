@@ -63,7 +63,7 @@ hook.Add( "ULibPostTranslatedCommand", "CFC_ChatVisibility_ULibCommand", functio
         recipient = recipient,
         message = {
             teamColor( author ), author:GetName(),
-            colors.psay_seperator, " -> ",
+            colors.psay_seperator, " → ",
             teamColor( recipient ), recipient:GetName(),
             colors.text, ": ", text
         },
