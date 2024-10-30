@@ -5,9 +5,8 @@ local colors = {
     text           = Color( 255, 255, 255 )
 }
 
-if SERVER then
-    ULib.ucl.registerAccess( "ulx seepsay", ULib.ACCESS_ADMIN, "Ability to see all team and private messages", "Other" )
-end
+local teamchatCvar = CreateConVar("chatvisibility_logteamchat", "1", {FCVAR_ARCHIVE}, "Should team messages automatically be forwarded to staff?")
+ULib.ucl.registerAccess( "ulx seepsay", ULib.ACCESS_ADMIN, "Ability to see all team and private messages", "Other" )
 
 local function canSee( ply )
     return ULib.ucl.query( ply, "ulx seepsay" ) == true
@@ -35,6 +34,7 @@ end
 hook.Add( "PlayerSay", "CFC_ChatVisibility_Say", function( author, text, isTeam )
     if not isTeam then return end
     if not IsValid( author ) then return end
+    if not teamchatCvar:GetBool() then return end
 
     printStaff{
         author = author,
